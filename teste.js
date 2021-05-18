@@ -1,19 +1,99 @@
-const names = [
-    [0, 1],
-    [8, 9],
-    [1, 9], 
-    [7, 6],
-    [2, 1], 
-]
+var scatterChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            datasets: [
+            {
 
-const numbers = [9, 4, 10, 4, 1, 3]
+                label: 'Scatter Dataset',
+                backgroundColor: "rgba(246,156,85,1)",
+                borderColor: "rgba(246,156,85,1)",
+                fill: false,
+                borderWidth : 15,
+                pointRadius : 0,
+                data: [
+                    {
+                        x: 0,
+                        y: 9
+                    }, {
+                        x: 3,
+                        y: 9
+                    }
+                ]
+            },
+            {
+                backgroundColor: "rgba(208,255,154,1)",
+                borderColor: "rgba(208,255,154,1)",
+                fill: false,
+                borderWidth : 15,
+                pointRadius : 0,
+                data: [
+                    {
+                        x: 3,
+                        y: 7
+                    }, {
+                        x: 5,
+                        y: 7
+                    }
+                ]
+            },
+            {
 
-names.sort(compareFunction);
-numbers.sort(compareFunction);
-
-function compareFunction(a, b){
-    return a - b;
-}
-
-console.log(numbers);
-console.log(names);
+                label: 'Scatter Dataset',
+                backgroundColor: "rgba(246,156,85,1)",
+                borderColor: "rgba(246,156,85,1)",
+                fill: false,
+                borderWidth : 15,
+                pointRadius : 0,
+                data: [
+                    {
+                        x: 5,
+                        y: 5
+                    }, {
+                        x: 10,
+                        y: 5
+                    }
+                ]
+            },
+            {
+                backgroundColor: "rgba(208,255,154,1)",
+                borderColor: "rgba(208,255,154,1)",
+                fill: false,
+                borderWidth : 15,
+                pointRadius : 0,
+                data: [
+                    {
+                        x: 10,
+                        y: 3
+                    }, {
+                        x: 13,
+                        y: 3
+                    }
+                ]
+            }
+            ]
+        },
+        options: {
+            legend : {
+                display : false
+            },
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks : {
+                        beginAtzero :true,
+                        stepSize : 1
+                    }
+                }],
+                yAxes : [{
+                    scaleLabel : {
+                        display : false
+                    },
+                    ticks : {
+                        beginAtZero :true,
+                        max : 10
+                    }
+                }]
+            }
+        }
+    });

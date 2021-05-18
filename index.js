@@ -1,5 +1,6 @@
 const processesVector = [];
 
+// Cria a estrutura para inserção dos processos
 const dom = {
     elementShowProcess: document.querySelector('.show-process'),
     structForm: document.querySelector('.show-fifo'),
@@ -28,14 +29,16 @@ const dom = {
     },
 }
 
+// Criar chave de prioridade de cada processo e ordena o vetor de processos
 const process = {
     startingProcesses(){
         for(let i = 0; i < processesVector.length; i++){ 
-            let element = processesVector[i].struct.querySelector('#time-init').value;  
-            processesVector[i].priority = element;
+            let elementPriority = processesVector[i].struct.querySelector('#time-init').value;  
+            processesVector[i].priority = parseInt(elementPriority);
         }
 
-        this.orderProcesses(console.log(processesVector));
+        this.orderProcesses(processesVector);
+        runningAlgorithmFifo.addQuantum();
         
     },
 
@@ -45,4 +48,25 @@ const process = {
         })
     },
 
+}
+
+const runningAlgorithmFifo = {
+    addQuantum(){
+        for(let i = 0; i < processesVector.length; i++){
+            let elementQuantum = processesVector[i].struct.querySelector('#time-execution').value;
+            processesVector[i].quantum = parseInt(elementQuantum); 
+        }
+    
+        this.running();
+    },
+
+    running(){ 
+        for(let i = 0; i < processesVector.length; i++){
+            
+            setTimeout(() => {
+                console.log(processesVector);
+            }, (processesVector[i].quantum) * 1000);
+        }
+ 
+    },
 }

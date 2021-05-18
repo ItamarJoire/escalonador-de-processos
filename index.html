@@ -4,33 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Escalonador</title>
+    <link rel="shortcut icon" href="./images/icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Escalonador de processos</title>
 </head>
 <body>
     <div class="container">
-        <div class="form-container">
+        <h1>Selecione o algoritmo de escalonamento </h1>
+        <div class="header">
+          
+            <div class="containerOne">
+                <div class="algorithms scheduler-fifo" >
+                    <h3>FIFO</h3>
+                    <p>First In First Out</p>
+                </div>
+                <div class="algorithms scheduler-sjf" >
+                    <h3>SJF</h3>
+                    <p>Shortest Job First</p>
+                </div>
+            </div>
+
+            <div class="containerTwo">
+                <div class="algorithms scheduler-rr" >
+                    <h3>RR</h3>
+                    <p>Round Robin</p>
+                </div>
+                <div class="algorithms scheduler-edf" >
+                    <h3>EDF</h3>
+                    <p>Earliest Deadline First</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        <!-- <div class="form-container">
             <div class="number-process">
                 <h3>Quantidade de processos</h3>
                 <input class="show-process" type="number">
                 <button onclick="dom.addForm()">
-                    Mostrar processo
-                </button>
-            </div>
+                    Mostrar processo 
+                </button>  
+            </div>  -->
             <!-- <div class="number-process">
                 <h3>Quantum</h3>
                 <input type="number" max="5">
             </div> -->
-        </div>
+        <!-- </div>
 
         <div class="show-fifo"></div>
 
         <div class="type-scheduler">
             <button id="algorithm-fifo" onclick="process.startingProcesses()">FIFO</button>
-        </div>
-    </div>
+        </div> -->
+  
 
-    <script src="index.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
 

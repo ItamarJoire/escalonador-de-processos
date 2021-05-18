@@ -32,7 +32,7 @@
 
 // const arrayForm = new Array
 
-const array = [];
+const processesVector = [];
 
 const dom = {
     elementShowProcess: document.querySelector('.show-process'),
@@ -45,10 +45,9 @@ const dom = {
             newForm.setAttribute('class', 'form');
             newForm.innerHTML = this.createStruct(newForm);
             let struct = this.structForm.appendChild(newForm);
-            array.push({struct});
+            processesVector.push(struct);
         }
 
-        console.log(this.elementShowProcess.value);
         this.displayProcess();
        
     },
@@ -56,19 +55,42 @@ const dom = {
     createStruct(html){
         html = `
             <h3>Tempo de chegada</h3>
-            <input class="time-init" type="number">
+            <input id="time-init" type="number">
     
             <h3>Tempo de execução</h3>
-            <input class="time-execution" type="number">
+            <input id="time-execution" type="number">
         `
         return html;
     },
 
     displayProcess(){
-            console.log(array);
+            console.log(processesVector);
     }
 }
 
 
+const arrayValue = [];
+
+const process = {   
+ 
+    startingProcesses(){
+        for(let i = 0; i < processesVector.length; i++){
+            let valueTimeInit = processesVector[i].querySelector('#time-init');
+            arrayValue.push(valueTimeInit.value);  
+           
+            console.log(valueTimeInit.value);
+        }
+
+        console.log(this.priorityProcess(arrayValue));
+    },
+
+    // Pega o processo que tem o menor tempo de chegada
+    priorityProcess(array){
+        return Math.min.apply(Math, array);
+    }
+
+}
 
 
+
+    

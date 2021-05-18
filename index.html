@@ -12,13 +12,18 @@
         <div class="form-container">
             <div class="number-process">
                 <h3>Quantidade de processos</h3>
-                <input type="number" max="3">
+                <input class="show-process" type="number">
+                <button onclick="dom.addForm()">
+                    Mostrar processo
+                </button>
             </div>
-            <div class="number-process">
+            <!-- <div class="number-process">
                 <h3>Quantum</h3>
                 <input type="number" max="5">
-            </div>
+            </div> -->
         </div>
+
+        <div class="show-fifo"></div>
 
         <div class="type-scheduler">
             <button>FIFO</button>
@@ -28,3 +33,4 @@
     <script src="index.js"></script>
 </body>
 </html>
+

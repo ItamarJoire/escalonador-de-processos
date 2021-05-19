@@ -57,15 +57,38 @@ const runningAlgorithmFifo = {
             processesVector[i].quantum = parseInt(elementQuantum); 
         }
 
-        this.running();
+        this.run();
     },
 
-    running(){ 
-        for(let i = 0; i < processesVector.length; i++){
-
-            setTimeout(() => {
-                console.log(processesVector);
-            }, (processesVector[i].quantum) * 1000);
+    // BARRA DE PROGRESSO
+    run(){
+        const myBar = document.getElementById('myBar');
+        var width = 0;
+        var timeInt = setInterval(frame, 100);
+    
+        function frame(){
+            if (width >= 100) {
+                clearInterval(timeInt);
+            }else {
+                width++;
+                myBar.style.width = width + '%';
+                // myBar.innerHTML = width + '%';
+            }
         }
-    },
+    }
 }
+
+   
+
+
+ // running(){ 
+    //     for(let i = 0; i < processesVector.length; i++){
+
+    //         setTimeout(() => {
+    //             console.log(processesVector);
+    //         }, (processesVector[i].quantum) * 1000);
+    //     }
+    // },
+
+
+

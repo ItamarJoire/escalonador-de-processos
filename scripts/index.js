@@ -64,30 +64,38 @@ const runningAlgorithmFifo = {
     //BARRA DE PROGRESSO
 
     run(){
-        const myBarOne = document.querySelector('.myBarOne');
+        runOne();
+    },   
+}
+
+function runOne(){
+    const myBarOne = document.querySelector('.myBarOne');
         
-        let timeOfArrival = processesVector[0].priority;
+    let timeOfArrival = processesVector[0].priority;
+    
+    myBarOne.style.marginLeft = `${timeOfArrival.toString()}%`;
         
-        myBarOne.style.marginLeft = `${timeOfArrival.toString()}%`;
-            
-        var width = 0;
-        
-        var timeInt = setInterval(frame, 400);
-     
-        function frame(){
-            if(width == processesVector[0].quantum){
-                clearInterval(timeInt);
+    var width = 0;
+    
+    var timeInt = setInterval(frame, 400);
+    
+    function frame(){
+        if(width == processesVector[0].quantum){
+            clearInterval(timeInt);
+            if(processesVector.length == 1){
+                console.log('fim')
+            }else{
                 setTimeout(() => {
                     runTwo(timeOfArrival, width);
                 }, 1000);
             }
-            else{
-                width++;
-                myBarOne.style.width = width + '%';
-                myBarOne.innerHTML = width + '%'; 
-            }   
-        }  
-    },   
+        }
+        else{
+            width++;
+            myBarOne.style.width = width + '%';
+            myBarOne.innerHTML = width + '%'; 
+        }   
+    }  
 }
 
 function runTwo(newTimeOfArrial, newWidth){
@@ -104,9 +112,13 @@ function runTwo(newTimeOfArrial, newWidth){
     function frame(){
         if(width == processesVector[1].quantum){
             clearInterval(timeInt);
-            setTimeout(() => {
-                runThree(timeOfArrival, width);
-            }, 1000);
+            if(processesVector.length == 2){
+                console.log('fim')
+            }else{
+                setTimeout(() => {
+                    runThree(timeOfArrival, width);
+                }, 1000);
+            }
         }
         else{
             width++;

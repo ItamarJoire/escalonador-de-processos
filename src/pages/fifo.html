@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fifo.css">
+    <link rel="stylesheet" href="../../styles/progress.css">
+    <title>FIFO | First In First Out</title>
+</head>
+<body>
+    <div class="form-container">
+        <div class="number-process">
+            <h3>Quantidade de processos</h3>
+            <input class="show-process" type="number">
+            <button onclick="dom.addForm()">
+                Mostrar processo 
+            </button>  
+        </div>
+        <!-- <div class="number-process">
+            <h3>Quantum</h3>
+            <input type="number" max="5">
+        </div> -->
+    </div>
+
+    <div class="show-fifo"></div>
+
+    <div class="type-scheduler">
+        <button id="algorithm-fifo" onclick="process.startingProcesses()">FIFO</button>
+    </div>
+
+    <div class="body">
+        <div class="myProgress">
+            <div class="myBarOne myBar" style="margin-left: 0%"></div>
+        </div>
+
+        <div class="myProgress">
+            <div class="myBarTwo myBar" style="margin-left: 0%"></div>
+        </div>
+
+        <div class="myProgress">
+            <div class="myBarThree myBar" style="margin-left: 0%"></div>
+        </div>
+    </div>
+   
+ 
+
+    <script src="../../scripts/index.js"></script>
+</body>
+</html>

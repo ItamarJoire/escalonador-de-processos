@@ -51,6 +51,7 @@ const process = {
 }
 
 const runningAlgorithmFifo = {
+    
     addQuantum(){
         for(let i = 0; i < processesVector.length; i++){
             let elementQuantum = processesVector[i].struct.querySelector('#time-execution').value;
@@ -60,35 +61,81 @@ const runningAlgorithmFifo = {
         this.run();
     },
 
-    // BARRA DE PROGRESSO
+    //BARRA DE PROGRESSO
+
     run(){
-        const myBar = document.getElementById('myBar');
+        const myBarOne = document.querySelector('.myBarOne');
+        
+        let timeOfArrival = processesVector[0].priority;
+        
+        myBarOne.style.marginLeft = `${timeOfArrival.toString()}%`;
+            
         var width = 0;
-        var timeInt = setInterval(frame, 100);
-    
+        
+        var timeInt = setInterval(frame, 400);
+     
         function frame(){
-            if (width >= 100) {
+            if(width == processesVector[0].quantum){
                 clearInterval(timeInt);
-            }else {
-                width++;
-                myBar.style.width = width + '%';
-                // myBar.innerHTML = width + '%';
+                setTimeout(() => {
+                    runTwo(timeOfArrival, width);
+                }, 1000);
             }
-        }
-    }
+            else{
+                width++;
+                myBarOne.style.width = width + '%';
+                myBarOne.innerHTML = width + '%'; 
+            }   
+        }  
+    },   
 }
 
-   
+function runTwo(newTimeOfArrial, newWidth){
+    const myBarTwo = document.querySelector('.myBarTwo');
+            
+    let timeOfArrival = newTimeOfArrial + newWidth;
 
+    myBarTwo.style.marginLeft = `${timeOfArrival.toString()}%`;
+        
+    var width = 0;
 
- // running(){ 
-    //     for(let i = 0; i < processesVector.length; i++){
+    var timeInt = setInterval(frame, 400);
 
-    //         setTimeout(() => {
-    //             console.log(processesVector);
-    //         }, (processesVector[i].quantum) * 1000);
-    //     }
-    // },
+    function frame(){
+        if(width == processesVector[1].quantum){
+            clearInterval(timeInt);
+            setTimeout(() => {
+                runThree(timeOfArrival, width);
+            }, 1000);
+        }
+        else{
+            width++;
+            myBarTwo.style.width = width + '%';
+            myBarTwo.innerHTML = width + '%'; 
+        }   
+    }  
+}
 
+function runThree(newTimeOfArrial, newWidth){
+    const myBarThree = document.querySelector('.myBarThree');
+            
+    let timeOfArrival = newTimeOfArrial + newWidth;
 
+    myBarThree.style.marginLeft = `${timeOfArrival.toString()}%`;
+        
+    var width = 0;
+
+    var timeInt = setInterval(frame, 400);
+
+    function frame(){
+        if(width == processesVector[2].quantum){
+            clearInterval(timeInt);
+        }
+        else{
+            width++;
+            myBarThree.style.width = width + '%';
+            myBarThree.innerHTML = width + '%'; 
+        }   
+    }  
+}
 

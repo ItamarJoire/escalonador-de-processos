@@ -1,0 +1,26 @@
+.body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10vh;
+	flex-direction: column;
+}
+
+.myProgress {
+	width: 100%;
+	max-width: 700px;
+	background: #fff;
+	margin-bottom: .4rem;
+}
+
+.myBar{
+	width: 0%;
+	height: 40px;
+	line-height: 40px;
+	background: #0088FF;
+	text-align: center;
+	color: #fff;
+	transition-property: width;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+}

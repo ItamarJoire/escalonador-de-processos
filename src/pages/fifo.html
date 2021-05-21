@@ -11,19 +11,41 @@
     <title>FIFO | First In First Out</title>
 </head>
 <body>
-    <div class="form-container">
+    <div class="container-general">
+        <div class="container-process">
+            <div class="inputs-main">
+
+                <div class=" inputs number-process">
+                    <label for="number-process">N° de processo</label>
+                    <input id="number-process" type="number" min="1" max="10">
+                </div>
+
+                <div class="inputs quantum">
+                    <label for="quantum">Quantum</label>
+                    <input id="quantum" type="number" min="1" max="10">
+                </div>
+
+                <button class="buttons button-show">Mostrar</button>
+                
+            </div>
+            <div class="line"></div>
+        </div>
+
+
+    </div>
+    <!-- <div class="form-container">
         <div class="number-process">
             <h3>Quantidade de processos</h3>
             <input class="show-process" type="number">
             <button onclick="dom.addForm()">
                 Mostrar processo 
             </button>  
-        </div>
+        </div> -->
         <!-- <div class="number-process">
             <h3>Quantum</h3>
             <input type="number" max="5">
         </div> -->
-    </div>
+    <!-- </div>
 
     <div class="show-fifo"></div>
 
@@ -43,7 +65,7 @@
         <div class="myProgress">
             <div class="myBarThree myBar" style="margin-left: 0%"></div>
         </div>
-    </div>
+    </div> -->
     
     <script src="../../scripts/index.js"></script>
 </body>

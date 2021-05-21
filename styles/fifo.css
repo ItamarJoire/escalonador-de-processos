@@ -1,20 +1,94 @@
-.container{
+.container-general{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+
+    margin-top: 6.4rem;
+}
+
+.container-general .container-process .inputs-main{
+    display: flex;
+    justify-content: center;
+}
+
+.container-general .container-process .inputs-main .inputs{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-.form-container{
-    margin-top: 10%;
+/* Remove as setas do input number */
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
 }
 
-.number-process,
-.type-scheduler
-{
-    margin-top: 4rem;
+.inputs label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+
+    color: var(--gray-dark-two);
 }
 
-.show-fifo .form{
-    display: flex;
+.inputs input{
+    color: var(--primary);
+    height: 48px;
+    width: 13.6rem;
+    padding-left: 1.6rem;
+    border: 1px solid var(--gray-light);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+
+    margin-top: .6rem;
 }
-   
+
+.inputs input:focus{
+    border: 2px solid var(--secondary);
+    background: rgba(180, 205, 237, 0.2);
+}
+
+.inputs:nth-child(n + 2) {
+    margin-left: 1.2rem;
+}
+
+.buttons{
+    font-style: normal;
+    
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-align: center;
+}
+
+.button-show{
+    font-weight: 600;
+    height: 48px;
+    width: 13.2rem;
+    padding: 1.5rem 3.6rem;
+    border-radius: 6px;
+
+    margin: 2.4rem 0 0 1.6rem;
+    border: none;
+
+    color: #fff;
+    background: var(--primary);
+
+    transition: opacity 200ms;
+}
+
+.button-show:hover{
+    opacity: .9;
+    cursor: pointer;
+}
+
+.line{
+    margin-top: 2.4rem;
+    border: 1px solid rgba(217, 217, 217, 0.6);
+}

@@ -10,6 +10,13 @@
 :root{
     font-size: 62.5%;
     
+    --primary: #0D1821;
+    --secondary: #B4CDED;
+    --green: #B6CC6C;
+    --red: #CC6C6C;
+    --gray-dark: #545457;
+    --gray-dark-two: #ABABB0;
+    --gray-light: #D9D9D9;
 }
 
 a{
@@ -18,5 +25,4 @@ a{
 
 body{
     font-family: 'IBM Plex Sans', sans-serif;
-    background: #D9D9D9;
 }

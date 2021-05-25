@@ -86,8 +86,6 @@ const runningAlgorithmFifo = {
     //BARRA DE PROGRESSO
 
     run(){
-        const showGrafic = document.querySelector('.grafic');
-        showGrafic.classList.add('active');
         runOne();
     },   
 }
@@ -106,7 +104,8 @@ function runOne(){
         if(width == processesVector[0].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 1){
-                console.log('fim')
+                timeExecution();
+                
             }else{
                 setTimeout(() => {
                     runTwo(timeOfArrival, width);
@@ -136,7 +135,8 @@ function runTwo(newTimeOfArrial, newWidth){
         if(width == processesVector[1].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 2){
-                console.log('fim')
+                timeExecution()
+                
             }else{
                 setTimeout(() => {
                     runThree(timeOfArrival, width);
@@ -166,7 +166,8 @@ function runThree(newTimeOfArrial, newWidth){
         if(width == processesVector[2].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 3){
-                console.log('fim')
+                timeExecution()
+                
             }else{
                 setTimeout(() => {
                     runFour(timeOfArrival, width);
@@ -196,7 +197,8 @@ function runFour(newTimeOfArrial, newWidth){
         if(width == processesVector[3].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 4){
-                console.log('fim')
+                timeExecution()
+                
             }else{
                 setTimeout(() => {
                     runFive(timeOfArrival, width);
@@ -226,7 +228,8 @@ function runFive(newTimeOfArrial, newWidth){
         if(width == processesVector[4].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 5){
-                console.log('fim')
+                timeExecution()
+                
             }else{
                 setTimeout(() => {
                     runSix(timeOfArrival, width);
@@ -256,7 +259,8 @@ function runSix(newTimeOfArrial, newWidth){
         if(width == processesVector[5].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 6){
-                console.log('fim')
+                timeExecution()
+                
             }else{
                 setTimeout(() => {
                     runSeven(timeOfArrival, width);
@@ -286,7 +290,8 @@ function runSeven(newTimeOfArrial, newWidth){
         if(width == processesVector[6].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 7){
-                console.log('fim')
+                timeExecution()
+                
             }else{
                 setTimeout(() => {
                     runEight(timeOfArrival, width);
@@ -316,7 +321,8 @@ function runEight(newTimeOfArrial, newWidth){
         if(width == processesVector[7].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 8){
-                console.log('fim')
+                timeExecution();
+                
             }else{
                 setTimeout(() => {
                     runNine(timeOfArrival, width);
@@ -346,7 +352,8 @@ function runNine(newTimeOfArrial, newWidth){
         if(width == processesVector[8].quantum){
             clearInterval(timeInt);
             if(processesVector.length == 9){
-                console.log('fim')
+                timeExecution();
+                
             }else{
                 setTimeout(() => {
                     runTen(timeOfArrival, width);
@@ -375,7 +382,7 @@ function runTen(newTimeOfArrial, newWidth){
     function frame(){
         if(width == processesVector[9].quantum){
             if(processesVector.length == 10){
-                console.log('fim');
+                timeExecution();
                 clearInterval(timeInt);
             }
         }
@@ -385,4 +392,15 @@ function runTen(newTimeOfArrial, newWidth){
             myBarTen.innerHTML = width; 
         }   
     }  
+}
+
+function timeExecution(){
+    var turnaround = 0;
+    for(let i = 0; i < processesVector.length; i++){
+        turnaround += processesVector[i].quantum;
+    }
+    turnaround = turnaround / processesVector.length;
+
+    const turn = document.querySelector('.turnaround');
+    turn.innerHTML = `Turnaround é: ${turnaround.toFixed(0)}`;
 }

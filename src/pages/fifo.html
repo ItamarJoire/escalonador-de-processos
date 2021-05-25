@@ -15,58 +15,168 @@
         <div class="container-process">
             <div class="inputs-main">
 
-                <div class=" inputs number-process">
-                    <label for="number-process">N° de processo</label>
+                <div class="inputs number-process">
+                    <label for="number-process">N° de processos</label>
                     <input id="number-process" type="number" min="1" max="10">
                 </div>
 
                 <div class="inputs quantum">
                     <label for="quantum">Quantum</label>
-                    <input id="quantum" type="number" min="1" max="10">
+                    <input id="quantum" disabled type="number" min="1" max="10">
                 </div>
 
-                <button class="buttons button-show">Mostrar</button>
+                <button class="buttons button-show" onclick="dom.addForm()">Mostrar</button>
                 
             </div>
-            <div class="line"></div>
-        </div>
-
-
-    </div>
-    <!-- <div class="form-container">
-        <div class="number-process">
-            <h3>Quantidade de processos</h3>
-            <input class="show-process" type="number">
-            <button onclick="dom.addForm()">
-                Mostrar processo 
-            </button>  
-        </div> -->
-        <!-- <div class="number-process">
-            <h3>Quantum</h3>
-            <input type="number" max="5">
-        </div> -->
-    <!-- </div>
-
-    <div class="show-fifo"></div>
-
-    <div class="type-scheduler">
-        <button id="algorithm-fifo" onclick="process.startingProcesses()">FIFO</button>
-    </div>
-
-    <div class="body">
-        <div class="myProgress">
-            <div class="myBarOne myBar" style="margin-left: 0%"></div>
-        </div>
-
-        <div class="myProgress">
-            <div class="myBarTwo myBar" style="margin-left: 0%"></div>
-        </div>
-
-        <div class="myProgress">
-            <div class="myBarThree myBar" style="margin-left: 0%"></div>
-        </div>
-    </div> -->
+            
     
+            <div class="information-process"></div>
+            
+            <button onclick="process.startingProcesses()" class="buttons button-runtime">Iniciar execução</button>        
+        </div>
+        
+   
+        <div class="grafic">
+            <div class="status">
+                <h2>Executando</h2>
+                <div class="legend legend-status"></div>
+            </div>
+
+           <div class="execution-processes">   
+              
+                <table>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-9"></td>
+                        <td class="td-large td-large-light" id="te-9"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-ten"></td>
+                            <div class="my-progress">
+                                <div class="my-bar my-bar-ten"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-8"></td>
+                        <td class="td-large td-large-light" id="te-8"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-nine">
+                            <div class="my-progress-odd my-progress">
+                                <div class="my-bar my-bar-nine"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-7"></td>
+                        <td class="td-large td-large-light" id="te-7"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-eight">
+                            <div class="my-progress">
+                                <div class="my-bar my-bar-eight"></div>
+                            </div>
+                        </td>
+                  
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-6"></td>
+                        <td class="td-large td-large-light" id="te-6"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-seven">
+                            <div class="my-progress-odd my-progress">
+                                <div class="my-bar my-bar-seven"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-5"></td>
+                        <td class="td-large td-large-light" id="te-5"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-six">
+                            <div class="my-progress">
+                                <div class="my-bar my-bar-six"></div>
+                            </div>
+                        </td>
+                  
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-4"></td>
+                        <td class="td-large td-large-light" id="te-4"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-five">
+                            <div class="my-progress-odd my-progress">
+                                <div class="my-bar my-bar-five"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-3"></td>
+                        <td class="td-large td-large-light" id="te-3"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-four">
+                            <div class="my-progress">
+                                <div class="my-bar my-bar-four"></div>
+                            </div>
+                        </td>
+                  
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-2"></td>
+                        <td class="td-large td-large-light" id="te-2"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="tds td-three">
+                            <div class="my-progress-odd my-progress">
+                                <div class="my-bar my-bar-three" style="margin-left: 0%"></div>
+                            </div>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-1"></td>
+                        <td class="td-large td-large-light" id="te-1"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        
+                        <td class="tds td-two">
+                            <div class="my-progress">
+                                <div class="my-bar my-bar-two" style="margin-left: 0%"></div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="td-large td-large-light" id="tc-0"></td>
+                        <td class="td-large td-large-light" id="te-0"></td>
+                        <td class="td-large td-large-light"></td>
+                        <td class="td-large td-large-light"></td>
+                        
+                        <td class="tds td-one">
+                            <div class="my-progress-odd my-progress">
+                                <div class="my-bar my-bar-one" style="margin-left: 0%"></div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th class="td-large">TC</th>
+                        <th class="td-large">TE</th>
+                        <th class="td-large">D</th>
+                        <th class="td-large">E</th>
+                    </tr>
+                </table>
+            
+            </div>
+        </div>
+
+
+    </div>
+
     <script src="../../scripts/index.js"></script>
 </body>
 </html>

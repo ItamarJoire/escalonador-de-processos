@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/rr.css">
+    <title>RR | Round Robin</title>
+</head>
+<body>
+    <div class="container-general">
+        <div class="container-process">
+            <div class="inputs-main">
+
+                <div class="inputs number-process">
+                    <label for="number-process">N° de processos</label>
+                    <input id="number-process" type="number" min="1" max="10">
+                </div>
+
+                <div class="inputs quantum">
+                    <label for="quantum" onclick="show()">Quantum</label>
+                    <input id="quantum" type="number" min="1" max="10">
+                </div>
+
+                <button class="buttons button-show" onclick="dom.addForm()">Mostrar</button>
+                
+            </div>
+            
+    
+            <div class="information-process"></div>
+            
+            <button onclick="startingProcesses.addPriority()" class="buttons button-runtime">Iniciar execução</button>        
+        </div>
+        
+   
+        <div class="grafic">
+            <div class="status">
+                <h2>Executando</h2>
+                <div class="legend legend-status"></div>
+            </div>
+
+           <div class="execution-processes">   
+                <table>
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-9"></td>
+                        <td class="font-medium font-regular" id="te-9"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-ten">
+                            <div class="my-bar my-bar-9" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-8"></td>
+                        <td class="font-medium font-regular" id="te-8"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-nine">
+                            <div class="my-bar my-bar-8" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-7"></td>
+                        <td class="font-medium font-regular" id="te-7"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-eight">
+                            <div class="my-bar my-bar-7" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-6"></td>
+                        <td class="font-medium font-regular" id="te-6"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-seven">
+                            <div class="my-bar my-bar-6" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-5"></td>
+                        <td class="font-medium font-regular" id="te-5"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-six">
+                            <div class="my-bar my-bar-5" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-4"></td>
+                        <td class="font-medium font-regular" id="te-4"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-five">
+                            <div class="my-bar my-bar-4" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-3"></td>
+                        <td class="font-medium font-regular" id="te-3"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-four">
+                            <div class="my-bar my-bar-3" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-2"></td>
+                        <td class="font-medium font-regular" id="te-2"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-three">
+                            <div class="my-bar my-bar-2" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-1"></td>
+                        <td class="font-medium font-regular" id="te-1"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-two">
+                            <div class="my-bar my-bar-1" style="margin-left: 0%"></div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="font-medium font-regular" id="tc-0"></td>
+                        <td class="font-medium font-regular" id="te-0"></td>
+                        <td class="font-medium font-regular"></td>
+                        <td class="font-medium font-regular"></td>
+                        
+                        <td class="progress td-one">
+                            <div class="my-bar my-bar-0" style="margin-left: 0%">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="font-medium">TC</th>
+                        <th class="font-medium">TE</th>
+                        <th class="font-medium">DL</th>
+                        <th class="font-medium">N°</th>
+                    </tr>
+                </table>
+
+            </div>
+            
+                <div class="turnaround"></div>
+                
+                <div class="acronyms">
+                    <h4>TC - Tempo de Chegada</h4>
+                    <h4>TC - Tempo de Execução</h4>
+                    <h4>DL - Deadline</h4>
+                    <h4>N° - Número do Processo</h4>
+                </div>
+                
+        </div>
+
+
+    </div>
+
+    <script src="../../scripts/rr.js"></script>
+</body>
+</html>

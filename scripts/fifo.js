@@ -43,8 +43,8 @@ const dom = {
     },
 }
 
-const process = {
-    startingProcesses(){
+const startingProcesses = {
+    addPriority(){
         for(let i = 0; i < processesVector.length; i++){ 
             let element = processesVector[i].struct.querySelector('#arrival').value;  
             processesVector[i].priority = element;
@@ -53,9 +53,27 @@ const process = {
  
         }
 
+        this.addRuntime();
+        this.orderProcesses();
+      
+        
+    },
+
+    addRuntime(){
+        for(let i = 0; i < processesVector.length; i++){
+            let elementRuntime = processesVector[i].struct.querySelector('#runtime').value;
+            processesVector[i].runtime = parseInt(elementRuntime); 
+        }
+
+        for(let i = 0; i < processesVector.length; i++){
+            let numberPriority = document.querySelector(`#tc-${i}`);
+            let numberExecution = document.querySelector(`#te-${i}`);
+            numberPriority.innerHTML = processesVector[i].priority;
+            numberExecution.innerHTML = processesVector[i].runtime;
+        }
 
         this.orderProcesses(processesVector);
-        runningAlgorithmFifo.addQuantum();
+        this.runProcesses();
         
     },
 
@@ -63,31 +81,13 @@ const process = {
         processesVector.sort((a, b) => {
             return a.priority - b.priority;
         })
-    },
-}
 
-const runningAlgorithmFifo = {
-    addQuantum(){
-        for(let i = 0; i < processesVector.length; i++){
-            let elementQuantum = processesVector[i].struct.querySelector('#runtime').value;
-            processesVector[i].quantum = parseInt(elementQuantum); 
-        }
-
-        for(let i = 0; i < processesVector.length; i++){
-            let numberPriority = document.querySelector(`#tc-${i}`);
-            let numberExecution = document.querySelector(`#te-${i}`);
-            numberPriority.innerHTML = processesVector[i].priority;
-            numberExecution.innerHTML = processesVector[i].quantum;
-        }
-
-        this.run();
+        
     },
 
-    //BARRA DE PROGRESSO
-
-    run(){
+    runProcesses(){
         runOne();
-    },   
+    },
 }
 
 function runOne(){
@@ -101,7 +101,7 @@ function runOne(){
     var timeInt = setInterval(frame, 400);
     
     function frame(){
-        if(width == processesVector[0].quantum){
+        if(width == processesVector[0].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 1){
                 timeExecution();
@@ -132,7 +132,7 @@ function runTwo(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[1].quantum){
+        if(width == processesVector[1].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 2){
                 timeExecution()
@@ -163,7 +163,7 @@ function runThree(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[2].quantum){
+        if(width == processesVector[2].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 3){
                 timeExecution()
@@ -194,7 +194,7 @@ function runFour(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[3].quantum){
+        if(width == processesVector[3].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 4){
                 timeExecution()
@@ -225,7 +225,7 @@ function runFive(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[4].quantum){
+        if(width == processesVector[4].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 5){
                 timeExecution()
@@ -256,7 +256,7 @@ function runSix(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[5].quantum){
+        if(width == processesVector[5].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 6){
                 timeExecution()
@@ -287,7 +287,7 @@ function runSeven(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[6].quantum){
+        if(width == processesVector[6].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 7){
                 timeExecution()
@@ -318,7 +318,7 @@ function runEight(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[7].quantum){
+        if(width == processesVector[7].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 8){
                 timeExecution();
@@ -349,7 +349,7 @@ function runNine(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[8].quantum){
+        if(width == processesVector[8].runtime){
             clearInterval(timeInt);
             if(processesVector.length == 9){
                 timeExecution();
@@ -380,7 +380,7 @@ function runTen(newTimeOfArrial, newWidth){
     var timeInt = setInterval(frame, 400);
 
     function frame(){
-        if(width == processesVector[9].quantum){
+        if(width == processesVector[9].runtime){
             if(processesVector.length == 10){
                 timeExecution();
                 clearInterval(timeInt);
@@ -397,7 +397,7 @@ function runTen(newTimeOfArrial, newWidth){
 function timeExecution(){
     var turnaround = 0;
     for(let i = 0; i < processesVector.length; i++){
-        turnaround += processesVector[i].quantum;
+        turnaround += processesVector[i].runtime;
     }
     turnaround = turnaround / processesVector.length;
 

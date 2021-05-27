@@ -402,5 +402,7 @@ function timeExecution(){
     turnaround = turnaround / processesVector.length;
 
     const turn = document.querySelector('.turnaround');
+    turn.classList.add('show');
     turn.innerHTML = `Turnaround é: ${turnaround.toFixed(0)}`;
+    
 }

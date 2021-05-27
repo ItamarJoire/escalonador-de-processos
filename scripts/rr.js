@@ -1,10 +1,8 @@
 const processesVector = [];
-const newVectorProcesses = [];
 const tableProcesses = document.querySelector('.execution-processes');
 
 const dom = {
-    elementShowProcess: document.querySelector('#number-process'),
-    quantum: document.querySelector('#quantum'),
+    elementShowProcess: document.querySelector('#number-process'),  
     structForm: document.querySelector('.information-process'),
     buttonRuntime: document.querySelector('.button-runtime'),
     
@@ -53,7 +51,6 @@ const startingProcesses = {
             processesVector[i].priority = element;
             let elementPriority = processesVector[i].struct.querySelector('#arrival').value;  
             processesVector[i].priority = parseInt(elementPriority);
- 
         }
         
         this.addRuntime();
@@ -63,7 +60,10 @@ const startingProcesses = {
         for(let i = 0; i < processesVector.length; i++){
             let elementRuntime = processesVector[i].struct.querySelector('#runtime').value;
             processesVector[i].runtime = parseInt(elementRuntime); 
+           
         }
+
+        this.orderProcesses(processesVector);
 
         for(let i = 0; i < processesVector.length; i++){
             let numberPriority = document.querySelector(`#tc-${i}`);
@@ -72,7 +72,8 @@ const startingProcesses = {
             numberExecution.innerHTML = processesVector[i].runtime;
         }
 
-        this.orderProcesses(processesVector);
+        this.addBar();
+        console.log(processesVector);
         this.runProcesses(processesVector[0].priority, 0);
     },
 
@@ -82,48 +83,83 @@ const startingProcesses = {
         })
     },
 
+    addBar(){
+        for(let i = 0; i < processesVector.length; i++){
+            processesVector[i].bar = `.my-bar-${i}`;
+        } 
+    },
+
     position: 0,
     runProcesses(newTimeOfArrial, newWidth){
-        let bar = tableProcesses.querySelector(`.my-bar-${position}`);
+            const elementQuantum = document.querySelector('#quantum');
+            const quantum = elementQuantum.value;
+            var j = 0;
 
-        let timeOfArrival = newTimeOfArrial + width;
-
-        bar.style.marginLeft = `${timeOfArrival.toString()}%`;
-
-        var width = 0;
-        var widthOverload = 0;
-        var timeInt = setInterval(frame, 400);
-           
-        function frame(){
-            if((width == dom.quantum) && (processesVector[position].runtime > 0)){
-                if(processesVector.length == 0){
-                    clearInterval(timeInt);
-                    console.log('Acabou os processos');
-                    return;
-                }else{
-                    let newElement = processesVector.shift();   
-                    newVectorProcesses.push(newElement);
-                    
-                    widthOverload++;
-                    bar.style.widthOverload = widthOverload + '%';
-                    bar.innerHTML = widthOverload;
-                    position++;
-                    clearInterval(timeInt);
-                    this.runProcesses(); 
-                }
-
-            }else{
-                width++;
-                bar.style.width = width + '%';
-                bar.innerHTML = width; 
-            }
+            for(let i = 0; i < processesVector.length; i++){
+                let transition = tableProcesses.querySelector(processesVector[i].bar);
+                console.log(transition);
                 
-        }
+                var timeOfArrival = newTimeOfArrial + newWidth;
+               
+                transition.style.marginLeft = `${timeOfArrival.toString()}%`;
+                
+               
+                var width = 0;
+                var timeInt = setInterval(frame, 400);
+                   
+                function frame(){
+                    if(processesVector[i].runtime <= quantum){
+                        if(width == processesVector[i].runtime){
+                            if(processesVector[i].runtime <= quantum){
+                                processesVector.shift();
+                                i--;
+                                clearInterval(timeInt);
+                                continue;
+                            }else{
+                                processesVector[i].runtime = processesVector[i].runtime - quantum;
+                                let newElement = processesVector.shift();
+                                processesVector.push(newElement);
+                            }
+        
+                            widthOverload = 0;
+                            let insert = tableProcesses.querySelector(`.td-${j}`);
+                            let newDiv = document.createElement('div');
+                            newDiv.setAttribute('class', `my-bar my-bar-${j+1}`);
+        
+                            insert.appendChild(newDiv);
+                            console.log(insert);
+        
+                            setTimeout(() =>{
+                                widthOverload++;
+                                newDiv.style.backgroundColor = 'red';
+                                newDiv.style.width = widthOverload + '%';
+                                newDiv.innerHTML = widthOverload;
+                            }, 1000);
+                            
+                            j++;
+                            clearInterval(timeInt);
+                        
+                        }else{ 
+                            width++; 
+                            transition.style.width = width + '%';
+                            transition.innerHTML = width;                   
+                        }
+                    }    
+                }else{
+                    width++; 
+                    transition.style.width = width + '%';
+                    transition.innerHTML = width; 
+                    
+                    processesVector[i].runtime = processesVector[i].runtime - 1;
+                }
+            
+            }
+          
+       
     }
 }
 
 
-console.log(tableProcesses);
 // function timeExecution(){
 //     var turnaround = 0;
 //     for(let i = 0; i < processesVector.length; i++){

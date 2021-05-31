@@ -89,7 +89,7 @@ const startingProcesses = {
         } 
     },
 
-    position: 0,
+    
     runProcesses(newTimeOfArrial, newWidth){
             const elementQuantum = document.querySelector('#quantum');
             const quantum = elementQuantum.value;
@@ -114,21 +114,14 @@ const startingProcesses = {
                                 processesVector.shift();
                                 i--;
                                 clearInterval(timeInt);
-                                continue;
+
                             }else{
                                 processesVector[i].runtime = processesVector[i].runtime - quantum;
                                 let newElement = processesVector.shift();
                                 processesVector.push(newElement);
                             }
-        
-                            widthOverload = 0;
-                            let insert = tableProcesses.querySelector(`.td-${j}`);
-                            let newDiv = document.createElement('div');
-                            newDiv.setAttribute('class', `my-bar my-bar-${j+1}`);
-        
-                            insert.appendChild(newDiv);
-                            console.log(insert);
-        
+                            
+                            
                             setTimeout(() =>{
                                 widthOverload++;
                                 newDiv.style.backgroundColor = 'red';
@@ -144,18 +137,18 @@ const startingProcesses = {
                             transition.style.width = width + '%';
                             transition.innerHTML = width;                   
                         }
-                    }    
-                }else{
+                    }else{
                     width++; 
                     transition.style.width = width + '%';
                     transition.innerHTML = width; 
                     
                     processesVector[i].runtime = processesVector[i].runtime - 1;
-                }
+                
             
+                }
             }
           
-       
+        }
     }
 }
 
